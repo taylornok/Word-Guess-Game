@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Word Guess!</title>
+        <meta name="My 3rd homework for UCBX FSP" content="">
+        <!-- Make it responsive -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="reset" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- Adding in Bootstrap css -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">      
+        <!-- Add in Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">  
+    </head>
+
+    <!-- Enter body -->
+    <body>
+        <h1 class="main-font"> Let's play Word Guess!</h1>
+        <h2 class="main-font">Instructions:</h2>
+        <h4 class="main-font">Press any letter key to begin the game. You have 10 chances to guess the word. Good luck!</h4>
+        <h5 class="main-font"> Your wins: <span  class="gameInput"> </span> </h5>
+        <h5 class="main-font"> Your losses: <span class="gameInput"> </span> </h5>
+        <h5 class="main-font"> Turns left <span class="gameInput"> </span> </h5>
+
+        
+        <!-- Now for the Javascript! -->
+        <script>
+            // Fun Greeting
+            var userName = prompt("Oh, hello stranger!  Now what should I call you?");
+                alert ("Well hello " + userName + ", pleasure to meet you.")
+            var question = confirm("Are you psychic?");
+                if (question) {
+                    alert("Well let's test your skills!")
+                }
+                else {
+                    alert("Too bad, how about we pretend?")
+                }
+
+
+            // Make variables for the game
+            // Create an array with words to be randomized
+            var wordList = ["Drake", "Beyonce", "Sam Smith", "Lil Wayne", "Ariana Grande", "Cardi B", "Migos", "The Weeknd", "Kendrick Lamar", "Post Malone", "Imagine Dragons", "Fleetwood Mac"];
+
+            // Randomize those words
+            var word = wordList[Math.floor(Math.random() * wordList.length)].toLowerCase()
+            var answerArray = []
+            var guessesLeft = 10;
+            var wins = 0;
+            var losses = 0;
+            
+            // Define user input
+            document.onkeyup = function(event) {
+               var userGuess = event.key;
+
+
+            // Make the wordList appear as ___
+            
+            var letterArray = word.split("");
+            console.log(letterArray)
+            for (var i =0; i < letterArray.length; i++) {
+                if (userGuess === letterArray[i]){
+                    answerArray[i] = letterArray[i]
+                }
+                else if(!answerArray[i]) {
+                    answerArray[i] = "_";
+                }
+                
+                // guessesLeft = guessesLeft - 1;
+                
+            }             
+            console.log("checking answer array", answerArray)
+
+            }
+            // Create the blanks to fill in
+            // While (remainingLetters > ) {
+                
+            // }
+
+            //  Start by identifying user input
+
+                
+
+            //     console.log(event.key)
+
+            // document.onkeyup = function(event) {
+            //     var userGuess = event.key;
+            //     var randWord = gameWords[Math.floor(Math.random() * gameWords.length)];
+            //     for (i = 0; i < gameWords.length; i);
+
+
+
+
+        </script>
+             <!-- Add in Javascript -- from Bootstrap -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    </body>
+</html>
