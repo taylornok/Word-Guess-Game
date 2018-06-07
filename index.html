@@ -23,84 +23,19 @@
         <h1 class="main-font"> Let's play Word Guess!</h1>
         <h2 class="main-font">Instructions:</h2>
         <h4 class="main-font">Press any letter key to begin the game. You have 10 chances to guess the word. Good luck!</h4>
-        <h5 class="main-font"> Your wins: <span  class="gameInput"> </span> </h5>
+        <h5 class="main-font"> Your wins: <span class="gameInput"> </span> </h5>
         <h5 class="main-font"> Your losses: <span class="gameInput"> </span> </h5>
         <h5 class="main-font"> Turns left <span class="gameInput"> </span> </h5>
 
         
-        <!-- Now for the Javascript! -->
-        <script>
-            // Fun Greeting
-            var userName = prompt("Oh, hello stranger!  Now what should I call you?");
-                alert ("Well hello " + userName + ", pleasure to meet you.")
-            var question = confirm("Are you psychic?");
-                if (question) {
-                    alert("Well let's test your skills!")
-                }
-                else {
-                    alert("Too bad, how about we pretend?")
-                }
+    </body>  
 
+        <script src="assets\javascript\game.js"></script>
 
-            // Make variables for the game
-            // Create an array with words to be randomized
-            var wordList = ["Drake", "Beyonce", "Sam Smith", "Lil Wayne", "Ariana Grande", "Cardi B", "Migos", "The Weeknd", "Kendrick Lamar", "Post Malone", "Imagine Dragons", "Fleetwood Mac"];
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-            // Randomize those words
-            var word = wordList[Math.floor(Math.random() * wordList.length)].toLowerCase()
-            var answerArray = []
-            var guessesLeft = 10;
-            var wins = 0;
-            var losses = 0;
-            
-            // Define user input
-            document.onkeyup = function(event) {
-               var userGuess = event.key;
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
-
-            // Make the wordList appear as ___
-            
-            var letterArray = word.split("");
-            console.log(letterArray)
-            for (var i =0; i < letterArray.length; i++) {
-                if (userGuess === letterArray[i]){
-                    answerArray[i] = letterArray[i]
-                }
-                else if(!answerArray[i]) {
-                    answerArray[i] = "_";
-                }
-                
-                // guessesLeft = guessesLeft - 1;
-                
-            }             
-            console.log("checking answer array", answerArray)
-
-            }
-            // Create the blanks to fill in
-            // While (remainingLetters > ) {
-                
-            // }
-
-            //  Start by identifying user input
-
-                
-
-            //     console.log(event.key)
-
-            // document.onkeyup = function(event) {
-            //     var userGuess = event.key;
-            //     var randWord = gameWords[Math.floor(Math.random() * gameWords.length)];
-            //     for (i = 0; i < gameWords.length; i);
-
-
-
-
-        </script>
-             <!-- Add in Javascript -- from Bootstrap -->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    </body>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    
 </html>
