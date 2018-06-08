@@ -9,7 +9,6 @@
         <title>Word Guess!</title>
         <meta name="My 3rd homework for UCBX FSP" content="">
         <!-- Make it responsive -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="reset" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- Adding in Bootstrap css -->
@@ -20,14 +19,17 @@
 
     <!-- Enter body -->
     <body>
-        <h1 class="main-font"> Let's play Word Guess!</h1>
-        <h2 class="main-font">Instructions:</h2>
-        <h4 class="main-font">Press any letter key to begin the game. You have 10 chances to guess the word. Good luck!</h4>
-        <h5 class="main-font"> Your wins: <span class="gameInput"> </span> </h5>
-        <h5 class="main-font"> Your losses: <span class="gameInput"> </span> </h5>
-        <h5 class="main-font"> Turns left <span class="gameInput"> </span> </h5>
+        <h1> Let's play Word Guess!</h1>
+        <h2>Instructions:</h2>
+        <h4>Press any letter key to begin the game. You have 10 chances to guess the word. Good luck!</h4>
+        <h5> Your wins: <span id="gameWin"> </span> </h5>
+        <h5> Your losses: <span id="gameLost"> </span> </h5>
+        <h5> Turns left: <span id="guessesLeft"> </span> </h5>
+        <br />
+        <br />
+        <br />
+        <h1 id = "winning" style="text-align: center"></h1>
 
-        
     </body>  
 
         <script src="assets\javascript\game.js"></script>

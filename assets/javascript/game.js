@@ -1,12 +1,12 @@
 // Now for the Javascript! Here's a fun opener
-var userName = prompt("Oh, hello stranger!  Now what should I call you?");
-alert("Well hello " + userName + ", pleasure to meet you.")
-var question = confirm("Are you psychic?");
-if (question) {
-    alert("Well let's test your skills!")
-} else {
-    alert("Too bad, how about we pretend?")
-}
+// var userName = prompt("Oh, hello stranger!  Now what should I call you?");
+// alert("Well hello " + userName + ", pleasure to meet you.")
+// var question = confirm("Are you psychic?");
+// if (question) {
+//     alert("Well let's test your skills!")
+// } else {
+//     alert("Too bad, how about we pretend?")
+// }
 
 
 // Making variables for the game itself
@@ -21,6 +21,7 @@ var answerArray = []
 var guessesLeft = 10;
 var wins = 0;
 var losses = 0;
+var gameOver = false;
 
 // Define user input as userGuess
 document.onkeyup = function (event) {
@@ -33,9 +34,18 @@ document.onkeyup = function (event) {
     //For loop to 
     for (var i = 0; i < letterArray.length; i++) {
         if (userGuess === letterArray[i]) {
-            answerArray[i] = letterArray[i]
-        } else if (!answerArray[i]) {
+            answerArray[i] = letterArray[i];
+        } 
+        else if (!answerArray[i]) {
             answerArray[i] = "_";
+            guessesLeft -= 1;
+            document.getElementById("winning").innerHTML = answerArray[i];
+        }
+        if (answerArray[i] === letterArray) {
+            gameOver = true;
+            wins = wins + 1;
+            word = word[i + 1];
+            alert("You win!");
         }
 
         // guessesLeft = guessesLeft - 1;
@@ -43,6 +53,15 @@ document.onkeyup = function (event) {
     }
     console.log("checking answer array", answerArray)
 
+}
+function start() {
+    // determine amount of hashes and spaces and put into 
+    // document.getElementById("winning").innerHTML
+    // get the word, fill in answer array with underscores and spaces, loop through and append to html 
+}
+
+function endGame() {
+    
 }
 // Create the blanks to fill in
 // While (remainingLetters > ) {
@@ -54,7 +73,7 @@ document.onkeyup = function (event) {
 
 
 //     console.log(event.key)
-
+start()
 // document.onkeyup = function(event) {
 //     var userGuess = event.key;
 //     var randWord = gameWords[Math.floor(Math.random() * gameWords.length)];
