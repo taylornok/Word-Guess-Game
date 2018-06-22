@@ -22,59 +22,90 @@ var guessesLeft = 10;
 var wins = 0;
 var losses = 0;
 var gameOver = false;
+var displayWord = makeDisplayWord(word);
+var guessedLetters = [];
 
+
+function makeDisplayWord (gameWord) {
+    var temp = [];
+    for (var i = 0; i< gameWord.length; i++) {
+        temp[i] = "_";
+        
+    }
+    return temp;
+}
+function endgameLose(){
+    document.getElementById("winning").textContent = word;
+    var gameMessage = document.createElement("h2");
+    var messageText = document.createTextNode("You Lost");
+    gameMessage.appendChild(messageText);
+    document.getElementById("winning").appendChild(gameMessage);
+    // gameMessage.textContent = ("You Lost")
+}
+function endgameWin (){
+    document.getElementById("winning").textContent = word;
+    var gameMessage = document.createElement("h2");
+    var messageText = document.createTextNode("You Won");
+    gameMessage.appendChild(messageText);
+    document.getElementById("winning").appendChild(gameMessage);
+}
+
+function addWin (){
+    var wins = [];
+    wins ++;
+    document.getElementById("guessWin").textContent = wins
+    
+}
+function addLoss (){
+    var losses = [];
+    losses ++;
+    document.getElementById("gameLost").textContent = losses
+}
 // Define user input as userGuess
 document.onkeyup = function (event) {
     var userGuess = event.key;
 
-    // Take the multi-character values in the wordList and split them into separate characters the comp. can recognize => letterArray
-    var letterArray = word.split("");
-    console.log(letterArray)
-
-    //For loop to 
-    for (var i = 0; i < letterArray.length; i++) {
-        if (userGuess === letterArray[i]) {
-            answerArray[i] = letterArray[i];
-        } 
-        else if (!answerArray[i]) {
-            answerArray[i] = "_";
-            guessesLeft -= 1;
-            document.getElementById("winning").innerHTML = answerArray[i];
-        }
-        if (answerArray[i] === letterArray) {
-            gameOver = true;
-            wins = wins + 1;
-            word = word[i + 1];
-            alert("You win!");
-        }
-
-        // guessesLeft = guessesLeft - 1;
-
-    }
-    console.log("checking answer array", answerArray)
-
-}
-function start() {
-    // determine amount of hashes and spaces and put into 
-    // document.getElementById("winning").innerHTML
-    // get the word, fill in answer array with underscores and spaces, loop through and append to html 
-}
-
-function endGame() {
+    // Take the multi-character values in the wordList and split them into separate characters the comp. can recognize => word
     
+    console.log(word);
+    function gameStart(){
+
+        if (guessedLetters.indexOf(userGuess) === -1){
+            guessedLetters.push(userGuess);
+            if(word.includes(userGuess)){
+            //For loop to 
+                for (var i = 0; i < word.length; i++) {
+                    if (userGuess === word[i]) {
+                        displayWord[i] = word[i];
+                    }
+                    
+
+
+                    
+
+                }
+            }
+            else{
+                guessesLeft -- ;
+            } 
+        }
+            document.getElementById("winning").textContent = displayWord.join(" ");
+            document.getElementById("guessesLeft").textContent = guessesLeft;
+            document.getElementById("guess").textContent = userGuess;
+    
+         console.log("checking answer array", answerArray)
+    }
+    gameStart();    
+    if (guessesLeft === 0) {
+        endgameLose();
+        addLoss();
+    }
+    if (displayWord === word[i].length){
+        endgameLose();
+        makeDisplayWord();
+    }
+
+
 }
-// Create the blanks to fill in
-// While (remainingLetters > ) {
-
-// }
-
-//  Start by identifying user input
 
 
-
-//     console.log(event.key)
-start()
-// document.onkeyup = function(event) {
-//     var userGuess = event.key;
-//     var randWord = gameWords[Math.floor(Math.random() * gameWords.length)];
-//     for (i = 0; i < gameWords.length; i);
